@@ -78,43 +78,55 @@ class HomePage extends StatelessWidget {
           ),
           GetX<ProductController>(
             builder: (productController) {
-              return Expanded(
-                child: GridView.builder(
-                  controller: _scrollController,
-                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 3),
-                  itemCount: productController.products.length,
-                  itemBuilder: (context, index) {
-                    return GestureDetector(
-                      onTap: () {
-                        Get.to(ProductDetailScreen(
-                            imageUrl: productController.products[index].image!,
-                            title: productController.products[index].title!,
-                            price: productController.products[index].price!
-                                .toString(),
-                            description: productController
-                                .products[index].description!));
-                      },
-                      child: Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Container(
-                          decoration: BoxDecoration(
-                            border: Border.all(color: Colors.grey),
-                            borderRadius: BorderRadius.circular(5),
-                            image: DecorationImage(
-                              fit: BoxFit.contain,
-                              image: NetworkImage(
-                                productController.products[index].image!,
+              if (productController.products.isEmpty) {
+                // Display text widget when no data is available
+                return const Center(
+                  child: Text(
+                    'Unable to load data. Check your internet connection.',
+                    style: TextStyle(fontSize: 16),
+                  ),
+                );
+              } else {
+                return Expanded(
+                  child: GridView.builder(
+                    controller: _scrollController,
+                    gridDelegate:
+                        const SliverGridDelegateWithFixedCrossAxisCount(
+                            crossAxisCount: 3),
+                    itemCount: productController.products.length,
+                    itemBuilder: (context, index) {
+                      return GestureDetector(
+                        onTap: () {
+                          Get.to(ProductDetailScreen(
+                              imageUrl:
+                                  productController.products[index].image!,
+                              title: productController.products[index].title!,
+                              price: productController.products[index].price!
+                                  .toString(),
+                              description: productController
+                                  .products[index].description!));
+                        },
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Container(
+                            decoration: BoxDecoration(
+                              border: Border.all(color: Colors.grey),
+                              borderRadius: BorderRadius.circular(5),
+                              image: DecorationImage(
+                                fit: BoxFit.contain,
+                                image: NetworkImage(
+                                  productController.products[index].image!,
+                                ),
                               ),
                             ),
+                            height: 80,
                           ),
-                          height: 80,
                         ),
-                      ),
-                    );
-                  },
-                ),
-              );
+                      );
+                    },
+                  ),
+                );
+              }
             },
           )
         ],

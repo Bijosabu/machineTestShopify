@@ -1,4 +1,3 @@
-import 'package:flutter/widgets.dart';
 import 'package:flutter/material.dart';
 
 class ProductDetailScreen extends StatelessWidget {
@@ -41,7 +40,7 @@ class ProductDetailScreen extends StatelessWidget {
           ),
           Text(
             '\$$price',
-            style: TextStyle(color: Colors.green, fontSize: 30),
+            style: const TextStyle(color: Colors.green, fontSize: 30),
           ),
           Padding(
             padding: const EdgeInsets.all(8.0),

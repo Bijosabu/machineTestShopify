@@ -7,10 +7,11 @@ class ApiCalls {
   Future<List<ProductModel>> fetchProducts() async {
     try {
       final response = await http
-          .get(Uri.parse('https://fakestoreapi.com/products?limit=15'));
+          .get(Uri.parse('https://fakestoreapi.com/products?limit=10'));
       final data = jsonDecode(response.body) as List<dynamic>;
       List<ProductModel> products =
           data.map((json) => ProductModel.fromJson(json)).toList();
+      print(products);
       return products;
     } catch (e) {
       throw e.toString();

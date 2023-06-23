@@ -70,7 +70,7 @@ class SwiperWidget extends StatelessWidget {
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(10),
                 child: Image.network(
-                  'https://media.istockphoto.com/id/1303978937/photo/white-sneaker-on-a-blue-gradient-background-mens-fashion-sport-shoe-sneakers-lifestyle.jpg?s=170667a&w=0&k=20&c=AgCuMLXuL61AgnrkHotqYRMlfuiVFHp8pmudX0PikqA=',
+                  'https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8c2hvZXN8ZW58MHx8MHx8fDA%3D&w=1000&q=80',
                   width: double.infinity,
                   fit: BoxFit.contain,
                 ),
