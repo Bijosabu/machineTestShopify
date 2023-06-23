@@ -21,3 +21,4 @@ samples, guidance on mobile development, and a full API reference.
 #it also shows the details of each product when selected
 #getx is used for state management
 #software architecture method DDD used , clean architecture
+#working on pagination as there is a slight issue on integrating with getx 
